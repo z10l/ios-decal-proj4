@@ -5,7 +5,7 @@
 * Ziteng Li
 * Carlos Caballero
 * Han Chen
-* Will Wang
+* Lintao Wang
 
 ## Purpose
 
