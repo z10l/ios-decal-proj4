@@ -55,6 +55,23 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if selectedCategoryIndex != nil {
+            return true
+        }
+        let ac = UIAlertController(title: "Error", message: "Please select category.", preferredStyle: .Alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(ac, animated: true, completion: nil)
+        return false
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if sender?.tag == 1 {
+            let nextView = segue.destinationViewController as! MultipleChoiceViewController
+            nextView.data = ["a","b","c","d"]
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
