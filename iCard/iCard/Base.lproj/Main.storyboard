@@ -145,33 +145,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwh-JF-YOx">
-                                <rect key="frame" x="20" y="63" width="569" height="120.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwh-JF-YOx">
+                                <rect key="frame" x="20" y="63" width="569" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Arx-gK-ISu">
-                                <rect key="frame" x="20" y="380" width="560" height="195"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Arx-gK-ISu">
+                                <rect key="frame" x="20" y="184" width="560" height="391"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dG3-a5-HEu">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dG3-a5-HEu">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="79"/>
                                         <animations/>
                                         <state key="normal" title="a"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVK-Xy-rQD">
-                                        <rect key="frame" x="0.0" y="55" width="560" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVK-Xy-rQD">
+                                        <rect key="frame" x="0.0" y="104" width="560" height="79"/>
                                         <animations/>
                                         <state key="normal" title="b"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfB-8O-FJ3">
-                                        <rect key="frame" x="0.0" y="110" width="560" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfB-8O-FJ3">
+                                        <rect key="frame" x="0.0" y="208" width="560" height="79"/>
                                         <animations/>
                                         <state key="normal" title="c"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-Qg-R22">
-                                        <rect key="frame" x="0.0" y="165" width="560" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-Qg-R22">
+                                        <rect key="frame" x="0.0" y="312" width="560" height="79"/>
                                         <animations/>
                                         <state key="normal" title="d"/>
                                     </button>
@@ -191,8 +191,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Arx-gK-ISu" secondAttribute="trailing" id="Q5A-Ea-don"/>
+                            <constraint firstItem="Arx-gK-ISu" firstAttribute="top" secondItem="Kwh-JF-YOx" secondAttribute="bottom" constant="100" id="Ukq-lM-5cE"/>
                             <constraint firstItem="Arx-gK-ISu" firstAttribute="leading" secondItem="x2m-8r-rpI" secondAttribute="leadingMargin" id="aBX-81-SLb"/>
-                            <constraint firstItem="5SC-61-20u" firstAttribute="top" secondItem="Arx-gK-ISu" secondAttribute="bottom" constant="25" id="eaw-ui-ua1"/>
+                            <constraint firstItem="5SC-61-20u" firstAttribute="top" secondItem="Arx-gK-ISu" secondAttribute="bottom" priority="900" constant="25" id="eaw-ui-ua1"/>
                             <constraint firstItem="60c-bd-iYg" firstAttribute="top" secondItem="RAB-uy-jzR" secondAttribute="bottom" id="fQw-d7-ciM"/>
                             <constraint firstItem="Kwh-JF-YOx" firstAttribute="top" secondItem="RAB-uy-jzR" secondAttribute="bottom" constant="43" id="iQ6-Un-tzr"/>
                             <constraint firstItem="Kwh-JF-YOx" firstAttribute="leading" secondItem="x2m-8r-rpI" secondAttribute="leadingMargin" id="jQr-9t-MQd"/>
@@ -200,6 +201,13 @@
                             <constraint firstItem="60c-bd-iYg" firstAttribute="leading" secondItem="x2m-8r-rpI" secondAttribute="leadingMargin" id="vUp-Ia-IiX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aButton" destination="dG3-a5-HEu" id="SQd-l9-avb"/>
+                        <outlet property="bButton" destination="fVK-Xy-rQD" id="RsB-Mi-UH7"/>
+                        <outlet property="cButton" destination="HfB-8O-FJ3" id="nUz-Li-ftS"/>
+                        <outlet property="dButton" destination="cBH-Qg-R22" id="UDG-OP-ita"/>
+                        <outlet property="questionLabel" destination="Kwh-JF-YOx" id="BwK-oS-fCT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8X-Ha-fLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

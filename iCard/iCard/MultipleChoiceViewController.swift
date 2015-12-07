@@ -9,7 +9,15 @@
 import UIKit
 
 class MultipleChoiceViewController: UIViewController {
-
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var aButton: UIButton!
+    @IBOutlet weak var bButton: UIButton!
+    @IBOutlet weak var cButton: UIButton!
+    @IBOutlet weak var dButton: UIButton!
+    var data: [String]?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
