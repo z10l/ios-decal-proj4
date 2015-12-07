@@ -15,6 +15,7 @@
 		CE929BA61C1501580028A9A6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929BA51C1501580028A9A6 /* MainViewController.swift */; };
 		CE929BA81C1505950028A9A6 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929BA71C1505950028A9A6 /* CategoryCollectionViewCell.swift */; };
 		CE929BAD1C15132E0028A9A6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929BAC1C15132E0028A9A6 /* Category.swift */; };
+		CE929BAF1C151B7C0028A9A6 /* MultipleChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929BAE1C151B7C0028A9A6 /* MultipleChoiceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CE929BA51C1501580028A9A6 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE929BA71C1505950028A9A6 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE929BAC1C15132E0028A9A6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		CE929BAE1C151B7C0028A9A6 /* MultipleChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleChoiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				CE929BA51C1501580028A9A6 /* MainViewController.swift */,
+				CE929BAE1C151B7C0028A9A6 /* MultipleChoiceViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				CE929BA81C1505950028A9A6 /* CategoryCollectionViewCell.swift in Sources */,
 				CE929B921C14DFD90028A9A6 /* AppDelegate.swift in Sources */,
 				CE929BA61C1501580028A9A6 /* MainViewController.swift in Sources */,
+				CE929BAF1C151B7C0028A9A6 /* MultipleChoiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

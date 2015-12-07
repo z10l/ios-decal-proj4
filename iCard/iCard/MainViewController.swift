@@ -13,6 +13,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var classicModeButton: UIButton!
     @IBOutlet weak var multipleChoiceButton: UIButton!
+    var selectedCategoryIndex: NSIndexPath?
+    var highlightColor = UIColor.lightGrayColor()
+    var normalColor = UIColor.whiteColor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +30,23 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Category", forIndexPath: indexPath) as! CategoryCollectionViewCell
+        cell.backgroundColor = normalColor
         cell.nameLabel.text = "HI"
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let oldIndex = selectedCategoryIndex {
+            if let oldcell = collectionView.cellForItemAtIndexPath(oldIndex) {
+                oldcell.backgroundColor = normalColor
+                selectedCategoryIndex = nil
+            }
+        }
+        
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+            cell.backgroundColor = highlightColor
+            selectedCategoryIndex = indexPath
+        }
     }
     
     
@@ -37,8 +55,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
-    
-
     /*
     // MARK: - Navigation
 

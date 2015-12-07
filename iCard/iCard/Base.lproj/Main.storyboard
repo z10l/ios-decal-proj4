@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="classicModeButton" destination="DN9-sT-ULu" id="T3r-cN-1Qw"/>
                         <outlet property="collectionView" destination="Ens-bG-AqQ" id="dew-Po-Vf6"/>
+                        <outlet property="multipleChoiceButton" destination="7jT-TG-QKu" id="k9J-a6-cfS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -133,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="1159" y="-103"/>
         </scene>
-        <!--View Controller-->
+        <!--Multiple Choice View Controller-->
         <scene sceneID="3b7-HM-S7A">
             <objects>
-                <viewController id="3T5-c3-iUA" sceneMemberID="viewController">
+                <viewController id="3T5-c3-iUA" customClass="MultipleChoiceViewController" customModule="iCard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RAB-uy-jzR"/>
                         <viewControllerLayoutGuide type="bottom" id="5SC-61-20u"/>
@@ -144,6 +145,49 @@
                     <view key="view" contentMode="scaleToFill" id="x2m-8r-rpI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwh-JF-YOx">
+                                <rect key="frame" x="20" y="63" width="569" height="176"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60c-bd-iYg">
+                                <rect key="frame" x="26" y="20" width="34" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="bqm-vh-h9Z"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Arx-gK-ISu">
+                                <rect key="frame" x="20" y="460" width="30" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dG3-a5-HEu">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="a"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVK-Xy-rQD">
+                                        <rect key="frame" x="0.0" y="30" width="30" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="b"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfB-8O-FJ3">
+                                        <rect key="frame" x="0.0" y="60" width="30" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="c"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-Qg-R22">
+                                        <rect key="frame" x="0.0" y="90" width="30" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="d"/>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
