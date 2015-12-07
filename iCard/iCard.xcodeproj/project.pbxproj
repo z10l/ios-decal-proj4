@@ -14,6 +14,7 @@
 		CE929BA41C1500E80028A9A6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929BA31C1500E80028A9A6 /* SwiftyJSON.swift */; };
 		CE929BA61C1501580028A9A6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929BA51C1501580028A9A6 /* MainViewController.swift */; };
 		CE929BA81C1505950028A9A6 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929BA71C1505950028A9A6 /* CategoryCollectionViewCell.swift */; };
+		CE929BAD1C15132E0028A9A6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE929BAC1C15132E0028A9A6 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CE929BA31C1500E80028A9A6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		CE929BA51C1501580028A9A6 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE929BA71C1505950028A9A6 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE929BAC1C15132E0028A9A6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				CE929BA31C1500E80028A9A6 /* SwiftyJSON.swift */,
+				CE929BAC1C15132E0028A9A6 /* Category.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE929BA41C1500E80028A9A6 /* SwiftyJSON.swift in Sources */,
+				CE929BAD1C15132E0028A9A6 /* Category.swift in Sources */,
 				CE929BA81C1505950028A9A6 /* CategoryCollectionViewCell.swift in Sources */,
 				CE929B921C14DFD90028A9A6 /* AppDelegate.swift in Sources */,
 				CE929BA61C1501580028A9A6 /* MainViewController.swift in Sources */,
