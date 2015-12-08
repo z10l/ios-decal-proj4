@@ -79,25 +79,23 @@ class Data: NSObject {
             do {
                 let jsonResultDic = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? [String:AnyObject]
                     if let list = jsonResultDic!["clues"] as? [[String: AnyObject]] {
-                        print("Here")
                         for dic in list {
                             var qa = [String]()
                             if let question = dic["question"] as? String {
-                                print("question")
                                 qa.append(question)
                             }
                             if let answer = dic["answer"] as? String {
-                                print("answer")
                                 qa.append(answer)
                             }
-                            qaTuple.append(qa)
+                            if qa[0].isEmpty == false && qa[1].isEmpty == false {
+                                qaTuple.append(qa)
+                            }
                         }
                     }
             } catch let error as NSError {
                 print("Failed to load: \(error.localizedDescription)")
             }
         }
-        print(qaTuple)
         return qaTuple
     }
 }

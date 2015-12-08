@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var normalColor = UIColor.whiteColor()
     var data = Data()
     var gotCategories = false
+    var currentQAPair = [[String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,25 +69,29 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if selectedCategoryIndex != nil {
-            return true
+        if selectedCategoryIndex == nil {
+            let ac = UIAlertController(title: "Error", message: "Please select category.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            return false
         }
-        if identifier == "MultipleChoice" {
-            
+        currentQAPair = data.getQuestionsByCategory(selectedCategoryIndex!.row)
+        if identifier == "MultipleChoice" && currentQAPair.count < 4  {
+            let ac = UIAlertController(title: "Bad Category", message: "Please select a category with more questions.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            return false
         }
-        let ac = UIAlertController(title: "Error", message: "Please select category.", preferredStyle: .Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
-        return false
+        return true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender?.tag == 1 {
             let nextView = segue.destinationViewController as! MultipleChoiceViewController
-            nextView.qaPairs = data.getQuestionsByCategory(selectedCategoryIndex!.row)
+            nextView.qaPairs = currentQAPair
         } else {
             let nextView = segue.destinationViewController as! ClassicViewController
-            nextView.qaPairs = self.data.getQuestionsByCategory(selectedCategoryIndex!.row)
+            nextView.qaPairs = currentQAPair
         }
     }
     
