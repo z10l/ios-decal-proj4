@@ -30,7 +30,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Category", forIndexPath: indexPath) as! CategoryCollectionViewCell
+        if indexPath == selectedCategoryIndex {
+            cell.backgroundColor = highlightColor
+        } else {
         cell.backgroundColor = normalColor
+        }
         cell.nameLabel.text = "HI"
         return cell
     }
