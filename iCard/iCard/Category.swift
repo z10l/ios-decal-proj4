@@ -22,7 +22,33 @@ class Data: NSObject {
     // use this query: 
     // jservice.io/api/categories?count=100
     func getCategories() {
-        
+        let url = NSURL(string: "http://jservice.io/api/categories?count=100")
+//        let request = NSURLRequest(URL: url!)
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!,completionHandler :
+            {
+                data, response, error in
+            if error == nil {
+                do {
+                    let jsonResultDic = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? [[String: AnyObject]]
+                    for dic in jsonResultDic! {
+                        var nameAndId = [String]()
+                        if let name = dic["title"] as? String {
+                            nameAndId.append(name)
+                        }
+                        if let id = dic["id"] as? Int {
+                            nameAndId.append(String(id))
+                        }
+                        self.categories.append(nameAndId)
+                    }
+//                    print(self.categories)
+                } catch let error as NSError {
+                    print("Failed to load: \(error.localizedDescription)")
+                }
+            } else {
+                print(error)
+            }
+        })
+        task.resume()
     }
     
 
@@ -32,7 +58,33 @@ class Data: NSObject {
     // Use query like:
     // jservice.io/api/categories?id=1
     func getQuestionsByCategory(id: Int) ->[[String]] {
-        return [[String]]()
+        var qaTuple = [[String]]()
+        
+        let url = NSURL(string: "jservice.io/api/clues")
+        let readingTask = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            do {
+                let jsonResultDic = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? [[String: AnyObject]]
+                for dic in jsonResultDic! {
+                    var singleQA = [String] ()
+                    let dataId = dic["id"] as! Int
+                    if (dataId == id) {
+                        if let question = dic["question"] as? String {
+                            singleQA.append(question)
+                        }
+                        if let answer = dic["answer"] as? String {
+                            singleQA.append(", ")
+                            singleQA.append(answer)
+                        }
+                    }
+                    qaTuple.append(singleQA)
+                }
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
+            }
+        }
+        readingTask.resume()
+        
+        return qaTuple
     }
 }
 

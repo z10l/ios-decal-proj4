@@ -16,22 +16,30 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var selectedCategoryIndex: NSIndexPath?
     var highlightColor = UIColor.lightGrayColor()
     var normalColor = UIColor.whiteColor()
+    var data = Data()
+    var gotCategories = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
+        
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 30
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if (!gotCategories) {
+            data.getCategories()
+            gotCategories = true
+        }
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Category", forIndexPath: indexPath) as! CategoryCollectionViewCell
         cell.backgroundColor = normalColor
         cell.nameLabel.text = "HI"
+        print(data.categories)
         return cell
     }
     
