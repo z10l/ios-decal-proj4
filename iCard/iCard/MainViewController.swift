@@ -24,7 +24,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
-        
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -35,11 +34,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if (!gotCategories) {
             data.getCategories()
             gotCategories = true
+            print(data.categories)
         }
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Category", forIndexPath: indexPath) as! CategoryCollectionViewCell
         cell.backgroundColor = normalColor
-        cell.nameLabel.text = "HI"
-        print(data.categories)
+        cell.nameLabel.text = data.categories[indexPath.row][0]
         return cell
     }
     

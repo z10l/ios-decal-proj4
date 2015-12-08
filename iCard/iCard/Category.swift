@@ -23,32 +23,37 @@ class Data: NSObject {
     // jservice.io/api/categories?count=100
     func getCategories() {
         let url = NSURL(string: "http://jservice.io/api/categories?count=100")
-//        let request = NSURLRequest(URL: url!)
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!,completionHandler :
-            {
-                data, response, error in
-            if error == nil {
-                do {
-                    let jsonResultDic = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? [[String: AnyObject]]
-                    for dic in jsonResultDic! {
-                        var nameAndId = [String]()
-                        if let name = dic["title"] as? String {
-                            nameAndId.append(name)
-                        }
-                        if let id = dic["id"] as? Int {
-                            nameAndId.append(String(id))
-                        }
-                        self.categories.append(nameAndId)
+        var responseError: NSError?
+        var response: NSURLResponse?
+        var data: NSData?
+        let request = NSURLRequest(URL: url!)
+        do {
+            data = try NSURLConnection.sendSynchronousRequest(request, returningResponse:&response)
+        } catch let error as NSError {
+            responseError = error
+            data = nil
+        }
+//        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+        if data != nil {
+            do {
+                let jsonResultDic = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? [[String: AnyObject]]
+                for dic in jsonResultDic! {
+                    var nameAndId = [String]()
+                    if let name = dic["title"] as? String {
+                        nameAndId.append(name)
                     }
-//                    print(self.categories)
-                } catch let error as NSError {
-                    print("Failed to load: \(error.localizedDescription)")
+                    if let id = dic["id"] as? Int {
+                        nameAndId.append(String(id))
+                    }
+                    self.categories.append(nameAndId)
                 }
-            } else {
-                print(error)
+                print(self.categories)
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
             }
-        })
-        task.resume()
+        } else {
+            print("Error")
+        }
     }
     
 
