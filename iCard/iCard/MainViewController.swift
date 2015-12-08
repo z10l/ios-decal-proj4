@@ -84,8 +84,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if sender?.tag == 1 {
             let nextView = segue.destinationViewController as! MultipleChoiceViewController
             nextView.qaPairs = data.getQuestionsByCategory(selectedCategoryIndex!.row)
+        } else {
+            let nextView = segue.destinationViewController as! ClassicViewController
+            nextView.qaPairs = self.data.getQuestionsByCategory(selectedCategoryIndex!.row)
         }
     }
+    
+    
     
     /*
     // MARK: - Navigation
