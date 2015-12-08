@@ -75,7 +75,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             presentViewController(ac, animated: true, completion: nil)
             return false
         }
-        currentQAPair = data.getQuestionsByCategory(selectedCategoryIndex!.row)
+        let id = data.categories[selectedCategoryIndex!.row][1]
+        currentQAPair = data.getQuestionsByCategory(Int(id)!)
         if identifier == "MultipleChoice" && currentQAPair.count < 4  {
             let ac = UIAlertController(title: "Bad Category", message: "Please select a category with more questions.", preferredStyle: .Alert)
             ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

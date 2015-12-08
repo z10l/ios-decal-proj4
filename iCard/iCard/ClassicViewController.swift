@@ -10,12 +10,17 @@ import UIKit
 
 class ClassicViewController: UIViewController {
 
+    @IBOutlet var bigButton: UIButton!
+
     @IBOutlet var label: UILabel!
-    @IBOutlet var backButton: UIButton!
     var qaPairs = [[String]]()
+    var count = 0
+    var onQuestion = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        bigButton.addTarget(self, action: "next:", forControlEvents: .TouchUpInside)
+//        updateViews()
 
         // Do any additional setup after loading the view.
     }
@@ -23,6 +28,24 @@ class ClassicViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func next(sender:UIButton!) {
+        count += 1
+        onQuestion = !onQuestion
+        updateViews()
+    }
+    
+    func updateViews() {
+        if count >= qaPairs.count {
+            return
+        }
+        var qaPair = qaPairs[count]
+        if onQuestion {
+            label.text = "Question: " + qaPair[0]
+        } else {
+            label.text = "Answer: " + qaPair[1]
+        }
     }
     
 
