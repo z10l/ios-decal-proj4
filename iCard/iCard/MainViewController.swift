@@ -16,6 +16,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var selectedCategoryIndex: NSIndexPath?
     var highlightColor = UIColor.lightGrayColor()
     var normalColor = UIColor.whiteColor()
+    var data = Data()
+    var gotCategories = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +27,19 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 30
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if (!gotCategories) {
+            data.getCategories()
+            gotCategories = true
+            print(data.categories)
+        }
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Category", forIndexPath: indexPath) as! CategoryCollectionViewCell
         cell.backgroundColor = normalColor
-        cell.nameLabel.text = "HI"
+        cell.nameLabel.text = data.categories[indexPath.row][0]
         return cell
     }
     
