@@ -134,7 +134,7 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="WOp-SH-3py"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-dr-m1W">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-dr-m1W">
                                 <rect key="frame" x="16" y="250" width="569" height="100"/>
                                 <animations/>
                                 <constraints>
@@ -168,7 +168,6 @@
                     <connections>
                         <outlet property="bigButton" destination="nse-82-gwi" id="61q-rb-2dB"/>
                         <outlet property="label" destination="Rnc-dr-m1W" id="fxD-wv-Uix"/>
-                        <outlet property="screen" destination="zWU-fM-Q2f" id="RbE-iX-vXC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uci-lU-Rzr" userLabel="First Responder" sceneMemberID="firstResponder"/>

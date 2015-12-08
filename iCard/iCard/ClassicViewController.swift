@@ -19,8 +19,8 @@ class ClassicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        bigButton.addTarget(self, action: "next:", forControlEvents: .TouchUpInside)
-//        updateViews()
+        bigButton.addTarget(self, action: "next:", forControlEvents: .TouchUpInside)
+        updateViews()
 
         // Do any additional setup after loading the view.
     }
@@ -38,6 +38,7 @@ class ClassicViewController: UIViewController {
     
     func updateViews() {
         if count >= qaPairs.count {
+            label.text = "You've finished all the questions in the category"
             return
         }
         var qaPair = qaPairs[count]
