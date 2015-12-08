@@ -82,7 +82,7 @@
                                         <animations/>
                                         <state key="normal" title="Multiple Choice"/>
                                         <connections>
-                                            <segue destination="3T5-c3-iUA" kind="show" id="HwC-bU-klf"/>
+                                            <segue destination="3T5-c3-iUA" kind="show" identifier="MultipleChoice" id="HwC-bU-klf"/>
                                         </connections>
                                     </button>
                                 </subviews>

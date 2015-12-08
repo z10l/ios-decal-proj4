@@ -71,6 +71,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if selectedCategoryIndex != nil {
             return true
         }
+        if identifier == "MultipleChoice" {
+            
+        }
         let ac = UIAlertController(title: "Error", message: "Please select category.", preferredStyle: .Alert)
         ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         presentViewController(ac, animated: true, completion: nil)
@@ -80,7 +83,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender?.tag == 1 {
             let nextView = segue.destinationViewController as! MultipleChoiceViewController
-            nextView.data = ["a","b","c","d"]
+            nextView.qaPairs = data.getQuestionsByCategory(selectedCategoryIndex!.row)
         }
     }
     

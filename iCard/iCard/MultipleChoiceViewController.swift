@@ -16,7 +16,7 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var bButton: UIButton!
     @IBOutlet weak var cButton: UIButton!
     @IBOutlet weak var dButton: UIButton!
-    var data: [String]?
+    var qaPairs: [[String]]?
     var correctAnswer = 0
     var score = 0
     
@@ -44,13 +44,13 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     func askQuestion(action: UIAlertAction!) {
-        data = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(data!) as? [String]
-        aButton.setTitle("a) \(data![0])", forState: .Normal)
-        bButton.setTitle("b) \(data![1])", forState: .Normal)
-        cButton.setTitle("c) \(data![2])", forState: .Normal)
-        dButton.setTitle("d) \(data![3])", forState: .Normal)
+        qaPairs = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(qaPairs!) as? [[String]]
+        aButton.setTitle("a) \(qaPairs![0][1])", forState: .Normal)
+        bButton.setTitle("b) \(qaPairs![1][1])", forState: .Normal)
+        cButton.setTitle("c) \(qaPairs![2][1])", forState: .Normal)
+        dButton.setTitle("d) \(qaPairs![3][1])", forState: .Normal)
         correctAnswer = GKRandomSource.sharedRandom().nextIntWithUpperBound(4)
-        // questionLabel.text = questions[correctAnser]
+        questionLabel.text = qaPairs![correctAnswer][0]
     }
     
     /*
