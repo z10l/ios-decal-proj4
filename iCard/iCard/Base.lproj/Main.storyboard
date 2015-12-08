@@ -39,7 +39,7 @@
                                                     <rect key="frame" x="70" y="91" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -63,7 +63,7 @@
                                 <rect key="frame" x="156" y="20" width="305" height="49"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tDv-ok-gJ9">
@@ -82,7 +82,7 @@
                                         <animations/>
                                         <state key="normal" title="Multiple Choice"/>
                                         <connections>
-                                            <segue destination="3T5-c3-iUA" kind="show" id="HwC-bU-klf"/>
+                                            <segue destination="3T5-c3-iUA" kind="show" identifier="MultipleChoice" id="HwC-bU-klf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="147" y="274"/>
         </scene>
-        <!--View Controller-->
+        <!--Classic View Controller-->
         <scene sceneID="i15-NQ-1ir">
             <objects>
-                <viewController id="ruM-iE-vPV" sceneMemberID="viewController">
+                <viewController id="ruM-iE-vPV" customClass="ClassicViewController" customModule="iCard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6lq-VZ-TvT"/>
                         <viewControllerLayoutGuide type="bottom" id="E88-Nb-D75"/>
@@ -125,9 +125,50 @@
                     <view key="view" contentMode="scaleToFill" id="zWU-fM-Q2f">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7y-Ry-sHG">
+                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="WOp-SH-3py"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-dr-m1W">
+                                <rect key="frame" x="16" y="250" width="569" height="100"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="qHk-Xh-AjR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nse-82-gwi">
+                                <rect key="frame" x="0.0" y="58" width="600" height="542"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="542" id="bNv-9P-AzU"/>
+                                </constraints>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J7y-Ry-sHG" firstAttribute="leading" secondItem="zWU-fM-Q2f" secondAttribute="leadingMargin" id="Acg-PC-orS"/>
+                            <constraint firstItem="nse-82-gwi" firstAttribute="leading" secondItem="zWU-fM-Q2f" secondAttribute="leading" id="HD1-lL-Jyh"/>
+                            <constraint firstItem="J7y-Ry-sHG" firstAttribute="top" secondItem="6lq-VZ-TvT" secondAttribute="bottom" id="Mer-au-FW2"/>
+                            <constraint firstItem="Rnc-dr-m1W" firstAttribute="centerX" secondItem="zWU-fM-Q2f" secondAttribute="centerX" id="NnT-2R-Ijn"/>
+                            <constraint firstItem="nse-82-gwi" firstAttribute="centerX" secondItem="Rnc-dr-m1W" secondAttribute="centerX" id="Ul6-tM-0t7"/>
+                            <constraint firstItem="nse-82-gwi" firstAttribute="top" secondItem="J7y-Ry-sHG" secondAttribute="bottom" constant="8" symbolic="YES" id="XEd-9P-MsX"/>
+                            <constraint firstItem="Rnc-dr-m1W" firstAttribute="leading" secondItem="zWU-fM-Q2f" secondAttribute="leadingMargin" constant="-4" id="cBd-NJ-gdW"/>
+                            <constraint firstItem="Rnc-dr-m1W" firstAttribute="centerY" secondItem="zWU-fM-Q2f" secondAttribute="centerY" id="dMG-Sf-bi9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bigButton" destination="nse-82-gwi" id="61q-rb-2dB"/>
+                        <outlet property="label" destination="Rnc-dr-m1W" id="fxD-wv-Uix"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uci-lU-Rzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,7 +193,7 @@
                                     <constraint firstAttribute="height" constant="100" id="5il-DH-CAP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Arx-gK-ISu">
@@ -229,4 +270,7 @@
             <point key="canvasLocation" x="1159" y="640"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WOp-SH-3py"/>
+    </inferredMetricsTieBreakers>
 </document>

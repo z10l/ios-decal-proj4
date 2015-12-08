@@ -18,12 +18,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var normalColor = UIColor.whiteColor()
     var data = Data()
     var gotCategories = false
+    var currentQAPair = [[String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
+        data.getQuestionsByCategory(1)
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -34,7 +36,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if (!gotCategories) {
             data.getCategories()
             gotCategories = true
-            print(data.categories)
         }
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Category", forIndexPath: indexPath) as! CategoryCollectionViewCell
@@ -68,21 +69,34 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if selectedCategoryIndex != nil {
-            return true
+        if selectedCategoryIndex == nil {
+            let ac = UIAlertController(title: "Error", message: "Please select category.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            return false
         }
-        let ac = UIAlertController(title: "Error", message: "Please select category.", preferredStyle: .Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
-        return false
+        let id = data.categories[selectedCategoryIndex!.row][1]
+        currentQAPair = data.getQuestionsByCategory(Int(id)!)
+        if identifier == "MultipleChoice" && currentQAPair.count < 4  {
+            let ac = UIAlertController(title: "Bad Category", message: "Please select a category with more questions.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            return false
+        }
+        return true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender?.tag == 1 {
             let nextView = segue.destinationViewController as! MultipleChoiceViewController
-            nextView.data = ["a","b","c","d"]
+            nextView.qaPairs = currentQAPair
+        } else {
+            let nextView = segue.destinationViewController as! ClassicViewController
+            nextView.qaPairs = currentQAPair
         }
     }
+    
+    
     
     /*
     // MARK: - Navigation
