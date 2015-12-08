@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
+        data.getQuestionsByCategory(1)
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -34,7 +35,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if (!gotCategories) {
             data.getCategories()
             gotCategories = true
-            print(data.categories)
         }
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Category", forIndexPath: indexPath) as! CategoryCollectionViewCell

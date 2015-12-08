@@ -33,7 +33,6 @@ class Data: NSObject {
             responseError = error
             data = nil
         }
-//        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
         if data != nil {
             do {
                 let jsonResultDic = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? [[String: AnyObject]]
@@ -47,7 +46,6 @@ class Data: NSObject {
                     }
                     self.categories.append(nameAndId)
                 }
-                print(self.categories)
             } catch let error as NSError {
                 print("Failed to load: \(error.localizedDescription)")
             }
@@ -65,30 +63,41 @@ class Data: NSObject {
     func getQuestionsByCategory(id: Int) ->[[String]] {
         var qaTuple = [[String]]()
         
-        let url = NSURL(string: "jservice.io/api/clues")
-        let readingTask = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+        let url = NSURL(string: "http://jservice.io/api/category?id=" + String(id))
+        var responseError: NSError?
+        var response: NSURLResponse?
+        var data: NSData?
+        let request = NSURLRequest(URL: url!)
+        do {
+            data = try NSURLConnection.sendSynchronousRequest(request, returningResponse:&response)
+        } catch let error as NSError {
+            responseError = error
+            data = nil
+        }
+        if data != nil {
+//            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
             do {
-                let jsonResultDic = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? [[String: AnyObject]]
-                for dic in jsonResultDic! {
-                    var singleQA = [String] ()
-                    let dataId = dic["id"] as! Int
-                    if (dataId == id) {
-                        if let question = dic["question"] as? String {
-                            singleQA.append(question)
-                        }
-                        if let answer = dic["answer"] as? String {
-                            singleQA.append(", ")
-                            singleQA.append(answer)
+                let jsonResultDic = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? [String:AnyObject]
+                    if let list = jsonResultDic!["clues"] as? [[String: AnyObject]] {
+                        print("Here")
+                        for dic in list {
+                            var qa = [String]()
+                            if let question = dic["question"] as? String {
+                                print("question")
+                                qa.append(question)
+                            }
+                            if let answer = dic["answer"] as? String {
+                                print("answer")
+                                qa.append(answer)
+                            }
+                            qaTuple.append(qa)
                         }
                     }
-                    qaTuple.append(singleQA)
-                }
             } catch let error as NSError {
                 print("Failed to load: \(error.localizedDescription)")
             }
         }
-        readingTask.resume()
-        
+        print(qaTuple)
         return qaTuple
     }
 }
